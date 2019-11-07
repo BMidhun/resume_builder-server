@@ -1,0 +1,124 @@
+doctype html
+html
+    head
+        title Resume
+        style. 
+
+            body{
+
+                font-family: 'Roboto','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            }
+
+            .main-head{
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                }
+            
+            h1{
+                color: rgb(51, 51, 240);
+                }
+            p{
+                font-size: 12px;
+            }
+
+            .summary p{
+                text-align: justify;
+                }
+            .main-head h1,p {
+
+                 margin: 5px;
+                }
+
+            .content_head h2{
+                  background: cornflowerblue;
+                  color: cornsilk;
+                  padding: 5px;
+                }
+            
+            .content{
+              margin: 20px;
+            }
+
+            .float-head {
+            
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              margin-bottom: 10px;
+
+
+            }
+
+            .float-head h4 {
+            
+               margin: 5px;
+
+            }
+
+            .float-head > p {
+              align-self: center;
+              color: #002;
+              font-style: italic;
+              font-size: smaller;
+            }
+
+            .content_head,.main-head {
+            
+              margin:30px;
+            }
+
+            .skills-container li {
+            
+                font-size: 12px;
+
+            }
+
+
+    body
+        div.container
+            div.main-head
+                h1 #{data.Bio.FirstName} #{data.Bio.LastName}
+                div.address
+                    p #{data.Bio.AddressLine1}
+                    p #{data.Bio.AddressLine2}
+                    p #{data.Bio.AddressLine3}
+                    p #{data.Bio.Email}
+                    p #{data.Bio.Phone}
+                    each social in data.Bio.socialAccounts
+                        p= social
+            div.content_head.summary
+                h2 Summary
+                p 
+                    |#{data.Bio.Summary} 
+            div.content_head
+                h2 Experience
+                each exp in data.Experience
+                    div.content
+                        div.float-head
+                            h4 #{exp.jobTitle}
+                            p  #{exp.from} - #{exp.to}
+                        p #{exp.companyName}
+                        p #{exp.location}
+                        p 
+                            |#{exp.experience}
+            div.content_head
+                h2 Education
+                each deg in data.Education
+                    div.content
+                        div.float-head
+                            h4 #{deg.degree}
+                            p Completed in #{deg.yearPassed}
+                        p #{deg.stream}
+                        p #{deg.percentage}%
+                        p #{deg.institution}
+                        p #{deg.location}
+            div.content_head.skills-container
+                h2 Skills
+                ul
+                    each skill in data.Skills
+                        li= skill
+
