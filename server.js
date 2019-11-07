@@ -12,6 +12,13 @@ server.set('view engine', 'pug');
 server.use(cors());
 server.use(bodyParser.json())
 
+server.use((req, res, next) => {
+    res.append('Access-Control-Allow-Origin', ['*']);
+    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.append('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
 
 const port = process.env.PORT || 3003;
 
@@ -49,7 +56,7 @@ server.post('/generatePDF', (req,res) => {
                page.setContent(html).then(response => {
 
                 page.pdf(options).then(buffer => {
-                    res.sendFile(__dirname+'/resume.pdf');
+                    res.header().sendFile(__dirname+'/resume.pdf');
                 })
 
             })
