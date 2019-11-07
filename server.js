@@ -17,7 +17,7 @@ const port = process.env.PORT || 3003;
 
 server.get('/',(req,res)=>{
 
-     res.send('Hello World', __dirname)
+     res.send(__dirname)
 })
 
 server.post('/generatePDF', (req,res) => {
