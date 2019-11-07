@@ -56,7 +56,7 @@ server.post('/generatePDF', (req,res) => {
                page.setContent(html).then(response => {
 
                 page.pdf(options).then(buffer => {
-                    res.header().sendFile(__dirname+'/resume.pdf');
+                    res.send(buffer);
                 })
 
             })
