@@ -12,6 +12,14 @@ server.set('view engine', 'pug');
 server.use(cors());
 server.use(bodyParser.json())
 
+let allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Headers', "*");
+    next();
+  }
+
+  app.use(allowCrossDomain);
+
 
 
 
