@@ -29,7 +29,7 @@ server.get('/',(req,res)=>{
 
 server.post('/generatePDF', (req,res) => {
 
-    formData = req.body
+    formData = req.body.data
 
     const options = {
         format: 'A4',
