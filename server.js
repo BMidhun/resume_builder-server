@@ -12,13 +12,13 @@ server.set('view engine', 'pug');
 server.use(cors());
 server.use(bodyParser.json())
 
-let allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', "*");
-    res.header('Access-Control-Allow-Headers', "*");
-    next();
-  }
+// let allowCrossDomain = function(req, res, next) {
+//     res.header('Access-Control-Allow-Origin', "*");
+//     res.header('Access-Control-Allow-Headers', "*");
+//     next();
+//   }
 
-  server.use(allowCrossDomain);
+//   server.use(allowCrossDomain);
 
 
 
@@ -61,6 +61,8 @@ server.post('/generatePDF', (req,res) => {
                page.setContent(html).then(response => {
 
                 page.pdf(options).then(buffer => {
+                    res.header('Access-Control-Allow-Origin', "*");
+                    res.header('Access-Control-Allow-Headers', "*");
                     res.send(buffer);
                 })
 
