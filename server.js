@@ -54,7 +54,7 @@ server.post('/generatePDF', (req,res) => {
 
     let html = pug.renderFile('views/index.pug',{data:formData})
 
-    try{
+    
     puppeteer.launch({args:['--no-sandbox','--disable-setuid-sandbox'],headless:true}).then(browser => {
 
         browser.newPage().then(page => {
@@ -75,9 +75,6 @@ server.post('/generatePDF', (req,res) => {
     })
 
 })
-    }catch(error){
-        res.send(error)
-    } 
 
 })
 
