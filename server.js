@@ -61,10 +61,10 @@ server.post('/generatePDF', (req,res) => {
                page.setContent(html).then(response => {
 
                 page.pdf(options).then(buffer => {
-                    res.header('Access-Control-Allow-Origin', "*");
-                    res.header('Access-Control-Allow-Headers', "*");
-                    res.header('Content-Type','application/pdf')
-                    res.send(buffer);
+                    // res.header('Access-Control-Allow-Origin', "*");
+                    // res.header('Access-Control-Allow-Headers', "*");
+                    // res.header('Content-Type','application/pdf')
+                    res.download(__dirname+'resume.pdf');
                 })
 
             })
