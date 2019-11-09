@@ -63,6 +63,7 @@ server.post('/generatePDF', (req,res) => {
                 page.pdf(options).then(buffer => {
                     res.header('Access-Control-Allow-Origin', "*");
                     res.header('Access-Control-Allow-Headers', "*");
+                    res.contentType("application/blob")
                     res.send(buffer);
                 })
 
