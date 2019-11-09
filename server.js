@@ -65,7 +65,7 @@ server.post('/generatePDF', (req,res) => {
                     // res.header('Access-Control-Allow-Headers', "*");
                     // res.header('Content-Type','application/pdf')
                 
-                    res.sendFile(__dirname+'/resume.pdf');
+                    res.send(buffer);
                 })
 
             })
