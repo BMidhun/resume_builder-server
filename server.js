@@ -25,10 +25,7 @@ server.use(bodyParser.json())
 
 const port = process.env.PORT || 3003;
 
-server.get('/',(req,res)=>{
 
-     res.send(__dirname)
-})
 
 server.post('/generatePDF', (req,res) => {
 
